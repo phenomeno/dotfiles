@@ -131,5 +131,5 @@ synclient PalmDetect=0
 synclient PalmMinZ=20
 synclient MaxSpeed=1.0
 synclient AreaRightEdge=1000
-synclient VertScrollDelta=30
-synclient HorizScrollDelta=30
+synclient VertScrollDelta=-30
+synclient HorizScrollDelta=-30
