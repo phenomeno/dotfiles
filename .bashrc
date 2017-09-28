@@ -123,13 +123,3 @@ fi
 # auto switch to ruby version
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-
-# touchpad settings
-synclient RightButtonAreaLeft=0
-synclient RightButtonAreaBottom=0
-synclient PalmDetect=0
-synclient PalmMinZ=20
-synclient MaxSpeed=1.0
-synclient AreaRightEdge=1000
-synclient VertScrollDelta=-30
-synclient HorizScrollDelta=-30

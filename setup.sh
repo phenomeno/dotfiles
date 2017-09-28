@@ -47,3 +47,6 @@ sudo apt install -y atom
 sudo apt-get install -y autokey-gtk
 mkdir ~/.config/autokey/data/Keybindings
 cp -R autokey_keybindings/. ~/.config/autokey/data/Keybindings
+
+# atom keymap (alt-k + up/down/right/left to split panes)
+cp config/keymap.cson ~/.atom/keymap.cson
