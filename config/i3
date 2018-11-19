@@ -184,3 +184,13 @@ focus_follows_mouse no
 # Open spotify in scratchpad workspace
 for_window [title="Spotify"] move scratchpad
 for_window [title="Slack"] move scratchpad
+for_window [title="Discord"] move scratchpad
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl s +10% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%- # decrease screen brightness

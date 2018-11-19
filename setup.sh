@@ -50,4 +50,7 @@ cp -R autokey_keybindings/. ~/.config/autokey/data/Keybindings
 
 # i3 config
 mkdir ~/.i3
-cp config/i3 .i3/config
+cp config/i3 ~/.i3/config
+
+# multimedia keys support when using i3
+sudo apt-get update; sudo apt-get install brightnessctl alsa-utils pulseaudio
