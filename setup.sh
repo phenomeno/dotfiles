@@ -55,3 +55,9 @@ cp config/i3 ~/.i3/config
 # multimedia keys support when using i3
 sudo apt-get update; sudo apt-get install brightnessctl alsa-utils pulseaudio
 sudo chmod u+s /usr/bin/brightnessctl
+
+# set caps lock to be ctrl
+cp config/.xprofile ~/.xprofile
+
+# set a higher dpi
+cp config/.Xresources ~/.Xresources
