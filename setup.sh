@@ -64,3 +64,6 @@ sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
 sudo systemctl start docker
 sudo usermod -aG docker pheno
 sudo systemctl enable docker
+
+# filewatcher
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
