@@ -1,14 +1,19 @@
 #!/bin/bash
 
+# vscode
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf check-update
+sudo dnf install code
+
 # google chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo apt-get update
-sudo apt-get install -y google-chrome-stable
+sudo dnf install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install google-chrome-stable
 
 # vim + stewart's vimrc config
-sudo apt-get install -y vim-gtk3 python-dev libxml2-dev libxslt-dev
-sudo apt-get install -y build-essential cmake
+sudo dnf group install "C Development Tools and Libraries"
+sudo dnf install vim cmake gcc-c++
 mkdir ~/Workspace/foof
 cd ~/Workspace/foof
 git clone git@github.com:stewartpark/vimrc.git
@@ -23,41 +28,39 @@ cd chruby-0.3.9/
 sudo make install
 
 cd ~/Downloads
-wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
-tar -xzvf ruby-install-0.6.1.tar.gz
-cd ruby-install-0.6.1/
+wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
+tar -xzvf ruby-install-0.7.0.tar.gz
+cd ruby-install-0.7.0/
 sudo make install
 
 ruby-install ruby
 
 # bashrc
-mkdir ~/Workspace/pheno
-cd ~/Workspace/pheno
-git clone git@github.com:phenomeno/dotfiles.git
-cd dotfiles
+cd ~/Workspace/pheno/dotfiles
 cp .bashrc ~/.bashrc
 source ~/.bashrc
 
-# atom
-sudo add-apt-repository ppa:webupd8team/atom
-sudo apt update
-sudo apt install -y atom
-
 # autokey
-sudo apt-get install -y autokey-gtk
-mkdir ~/.config/autokey/data/Keybindings
+sudo dnf install -y gtksourceview3 autokey-gtk
+mkdir ~/.config/autokey/data/Keybindings -p
 cp -R autokey_keybindings/. ~/.config/autokey/data/Keybindings
 
-# i3 config
-mkdir ~/.i3
-cp config/i3 ~/.i3/config
+# slack
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install slack spotify steam
 
-# multimedia keys support when using i3
-sudo apt-get update; sudo apt-get install brightnessctl alsa-utils pulseaudio
-sudo chmod u+s /usr/bin/brightnessctl
+# node
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo dnf install yarn
 
-# set caps lock to be ctrl
-cp config/.xprofile ~/.xprofile
-
-# set a higher dpi
-cp config/.Xresources ~/.Xresources
+# docker
+sudo dnf -y install dnf-plugins-core grubby
+sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io
+sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+sudo systemctl start docker
+sudo usermod -aG docker pheno
+sudo systemctl enable docker

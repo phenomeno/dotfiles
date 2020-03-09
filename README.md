@@ -21,8 +21,7 @@ Add to github.com > Settings > Add SSH key.
 ### Set additional keybindings
 
 ```bash
-sudo apt-get install gnome-tweak-tool
+sudo dnf install gnome-tweak-tool
 ```
 
 - Tweak Tool > Typing > Ctrl key position > Swap Ctrl and Caps Lock
-- System Settings > Keyboard > Shortcuts > System > Lock screen > Ctrl+Super+L
