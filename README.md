@@ -1,5 +1,6 @@
 # dotfiles
 
+## Fedora
 ### Add SSH key to github
 
 ```bash
@@ -25,3 +26,19 @@ sudo dnf install gnome-tweak-tool
 ```
 
 - Tweak Tool > Typing > Ctrl key position > Swap Ctrl and Caps Lock
+
+## Mac
+[ ] download firefox
+    - add vimium extension
+[ ] add ssh key
+[ ] download karabiner
+    - simple mods: caps lock -> left command
+    - complex mods: change command + h/j/k/l to Arrows
+[ ] system preferences, keyboard, modifier keys
+    - karabiner virtual keyboard: option -> command
+[ ] download vs code
+    - cmd + shift + p: install shell
+[ ] download slack
+[ ] download node
+[ ] download docker for mac
+[ ] ./setup-mac.sh
