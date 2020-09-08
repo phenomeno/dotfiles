@@ -39,6 +39,5 @@ sudo dnf install gnome-tweak-tool
 [ ] download vs code
     - cmd + shift + p: install shell
 [ ] download slack
-[ ] download node
 [ ] download docker for mac
 [ ] ./setup-mac.sh

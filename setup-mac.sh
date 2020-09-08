@@ -2,7 +2,7 @@
 
 # bashrc
 cd ~/Workspace/pheno/dotfiles
-cp .bash_profile ~/.bash_profile
+cp .zshrc ~/.zshrc
 
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -25,4 +25,7 @@ brew install chruby
 brew install ruby-install
 ruby-install ruby
 
-source ~/.bash_profile
+# node
+brew install node
+
+source ~/.zshrc
